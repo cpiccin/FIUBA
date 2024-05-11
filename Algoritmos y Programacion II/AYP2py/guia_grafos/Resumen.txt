@@ -1,0 +1,25 @@
+BFS recorre en forma radial O(V + E)
+
+DFS recorre en profundidad, recorre hasta el fondo O(V + E)
+
+ORDEN TOPOLOGICO solo grafos dirigidos y sin ciclos. O(V + E)
+    - Tipo BFS. Algoritmo de grados de entrada. Puede detectar ciclos
+    - Tipo DFS. No detecta ciclos
+
+CAMINOS MINIMOS. Camino minimo desde un origen hasta otro vertice. 
+    - BFS para grafos no pesados, el orden daria la distancia en aristas. O(V + E)
+    - Dijkstra para grafos pesados con pesos positivos. Con heap de minimos donde la distancia es la prioridad. O(E logV)
+    - Bellman-Ford para grafos con pesos negativos. No admite ciclos negativos. O(VE)
+
+ARBOL DE TENDIDO MINIMO, RECUBRIDOR DE UN GRAFO NO DIRIGIDO. 
+Arbol: grafo no dirigido, sin ciclos y conexo, tiene la minima cantidad de aristas para que sea conexo: V-1 aristas
+    - DFS para grafo no dirigido y no pesado, el diccionario de padres permite reconstruir un arbol
+    - MST para grafo con peso. Busca minimizar la suma de aristas, la menor cantidad de aristas (V-1) y que sumen el menor peso
+             - PRIM con heap de minimos (prioridad es el peso de la arista). O(E logV)
+             - KRUSKAL implementa UnionFind. O(E logV)
+
+PUNTOS DE ARTICULACION. Busca en un grafo no dirigido cual es el vertice que al eliminarlo desconecta el grafo
+    -  TARJAN para grafos no dirigidos y no importa el peso porque no lo tiene en cuenta. O(V + E)
+    
+COMPONENTES FUERTEMENTE CONEXAS. Para grafos dirigidos, conjunto de vertices que se conectan todos con todos.
+    - TARJAN O(V + E)

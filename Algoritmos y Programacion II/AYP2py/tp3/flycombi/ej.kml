@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+	<Document>
+	<Placemark>
+		<name>ACT</name>
+		<Point>
+			<coordinates>-97.23052, 31.61129</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark>
+		<name>DFW</name>
+		<Point>
+			<coordinates>-97.03720, 32.89595</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark>
+		<name>JFK</name>
+		<Point>
+			<coordinates>-73.77893, 40.63975</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark>
+		<LineString>
+			<coordinates>-97.23052, 31.61129 -97.03720, 32.89595</coordinates>
+		</LineString>
+	</Placemark>
+
+	<Placemark>
+		<LineString>
+			<coordinates>-97.03720, 32.89595 -73.77893, 40.63975</coordinates>
+		</LineString>
+	</Placemark>
+
+	</Document>
+</kml>

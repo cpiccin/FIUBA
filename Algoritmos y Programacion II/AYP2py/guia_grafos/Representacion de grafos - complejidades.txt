@@ -1,0 +1,22 @@
+Representacion de grafos
+
+- Matriz de incidencia: 
+	- Espacio O(VE) una columna por vertice, una fila por arista
+	- Agregar vertice o arista O(VE) implica rearmar toda la matriz entonces es 
+	- Ver si son adyacentes O(E) se busca coincidencia en las columnas de los dos vertices
+	- Obtener adyacentes O(E) es recorrer toda  la columna del vertice pasando por todas las aristas
+
+- Matriz de adyacencia:
+	- Espacio O(V^2) matriz cuadrada de VxV
+	- Agregar vertice O(V^2) implica rearmar toda la matriz
+	- Agregar arista O(1) solo es acceder a una posicion en la matriz y cambiar su valor
+	- Ver si son adyacentes O(1) es acceder a la fila y columna correspondiente
+	- Obtener adyacentes O(V) es recorrer toda la fila del vertice
+	
+- Listas de adyacencia:
+	- Espacio O(V + E) hay una lista de V elementos y por cada elemento hay una lista con sus aristas
+	- Agregar un vertice O(1) u O(V) si se quiere revisar que no este repetido (seguiria siendo O(1) si se implementa con diccionarios de diccionarios en vez de listas)
+	- Agregar una arista O(V) se recorre toda la lista (es O(1) si se implementa con diccionarios de diccionarios)
+	- Ver si son adyacentes O(V) (es O(1) si se implementa con diccionarios)
+	- Obtener adyacentes O(V) se busca el vertice y se accede a su lista de adyacentes (es O(1) si es con diccionarios)
+

@@ -1,0 +1,38 @@
+HACER EJ:
+	- 14: TDA PilaConMáximo
+	- 15: TDA Mamushka
+	- 20: TDA Gatito
+
+
+COMPLEJIDADES: 
+
+  Pila Dinamica: tiene complejidad amortizada por la redimension
+  	- Apilar O(1)
+  	- Desapilar O(1)
+
+  Cola Enlazada:
+  	- Encolar O(1)
+  	- Desencolar O(1)
+
+  Lista Enlazada:
+  	- InsertarPrimero O(1)
+  	- InsertarUltimo O(1)
+  	- Iterar O(n)
+  	- Iterador:
+  		-- Insertar O(1)
+  		-- Borrar O(1)
+
+  Heap:
+  	- CrearHeap O(1)
+  	- CrearHeapArr O(n) ----> por heapify que es O(n)
+  	- Desencolar O(log n)
+  	- Encolar O(log n)
+  	- HeapSort O(n log n)
+
+  Hash:
+  	- Guardar O(k) siendo k < n 
+		- Borrar O(k), peor caso que tenga que recorrer O(n), pero en general es O(k)
+		- El k es porque se tiene que seguir recorriendo el hash si es que hay un lugar marcado como ocupado o borrado en la tabla
+
+  ABB:
+  	- Guardar, Pertenece, Obtener, Borrar O(log n)
