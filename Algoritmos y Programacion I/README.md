@@ -1,3 +1,3 @@
-## Algoritmos y Programacion I - 75.04
+## Algoritmos y Programacion I - 75.40
 ### Curso Essaya
 2022
