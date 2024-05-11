@@ -1,0 +1,5 @@
+Instrucciones de transferencia y copia
+
+- LEA op1, op2
+Copia en el op1 (un registro) la direccion de memoria del op2. Ej:
+LEA RAX,[VARIABLE] es equivalente a MOV RAX,VARIABLE

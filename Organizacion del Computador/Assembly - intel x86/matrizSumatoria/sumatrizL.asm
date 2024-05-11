@@ -23,10 +23,10 @@ section	.data
 			dw	4,4,4,4,4
 			dw	5,5,5,5,5
     msjIngFilCol	    db	"Ingrese fila (1 a 5) y columna (1 a 5) separados por un espacio: ",0
-    formatInputFilCol	db	"%hi %hi",0
+    formatInputFilCol	db	"%hi %hi",0 ; hi es numero entero con signo base 10 en 16 bits
     msjErrorInput       db  "Los datos ingresados son inválidos.  Intente nuevamente."
-	sumatoria		    dd 0
-	msjSumatoria	    db	"La sumatoria es: %i",10,0    
+	sumatoria		    dd  0
+	msjSumatoria	    db	"La sumatoria es: %i",10,0 ; i es numero entero con signo base 10 en 32 bits
 
 section	.bss
 	inputFilCol		resb	50
@@ -87,21 +87,21 @@ validarFyC:
     mov     rdx,fila
     mov     rcx,columna
 	sub		rsp,8
-	call	sscanf
+	call	sscanf ; extrae, si puede los valores decimales de fila y columna, devuelve la cantidad de valores convertidos
 	add		rsp,8    
 
     cmp     rax,2
-    jl      invalido
+    jl      invalido ; si no pudo convertir 2 valores salta a invalido
 
-    cmp     word[fila],1
-    jl      invalido
-    cmp     word[fila],5
-    jg      invalido
+    cmp     word[fila],1 ; compara el valor de fila con 1
+    jl      invalido ; si es menor salta a invalido
+    cmp     word[fila],5 ; compara el valor de fila con 5
+    jg      invalido ; si es mayor salta a invalido
 
-    cmp     word[columna],1
-    jl      invalido
-    cmp     word[columna],5
-    jg      invalido
+    cmp     word[columna],1 ; compara el valor de columna con 1
+    jl      invalido ; si es menor salta a invalido
+    cmp     word[columna],5 ; compara el valor de columna con 5
+    jg      invalido ; si es mayor salta a invalido
 
     mov     byte[inputValido],'S'
 invalido:
@@ -110,7 +110,7 @@ ret
 calcDesplaz:
 ;  [(fila-1)*longFila]  + [(columna-1)*longElemento]
 ;  longFila = longElemento * cantidad columnas
-    mov     bx,[fila]
+    mov     bx,[fila] ; en vez de bx puedo usar cualquier otro registro de tamanio word (2 bytes, 16 bits)
     sub     bx,1
     imul    bx,bx,10    ;en bx tengo el desplazamiento a la fila
 
