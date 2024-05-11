@@ -1,0 +1,4 @@
+Escribir un programa que utiliza 2 threads, uno imprimiendo números pares y el otro números impares,
+alternándose desde 1 hasta un número dado. Implementar sincronización utilizando Locks
+y Conditions para asegurar que los números se imprimen en el orden correcto.
+

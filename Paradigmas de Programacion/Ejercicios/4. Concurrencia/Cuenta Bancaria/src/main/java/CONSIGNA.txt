@@ -1,0 +1,3 @@
+Sean las clases CuentaBancaria y Transaccion. ¿Es la implementación thread-safe? Si deseamos ejecutar muchas
+transacciones en PARALELO, ¿qué modificaciones habría que hacer? Implementar una simulación con N cuentas y M
+transacciones ejecutándose en T threads.

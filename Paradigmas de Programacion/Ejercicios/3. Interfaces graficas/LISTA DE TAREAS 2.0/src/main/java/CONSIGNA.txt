@@ -1,0 +1,5 @@
+Agregar a la lista de tareas la capacidad de persistir el estado:
+
+Cada vez que el usuario hace alguna acción, guardar la lista y el estado de las tareas en un archivo.
+
+Al iniciar la aplicación, si el archivo existe, cargar la lista de tareas del mismo.

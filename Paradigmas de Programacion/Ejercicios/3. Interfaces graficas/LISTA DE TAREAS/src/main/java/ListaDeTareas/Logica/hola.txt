@@ -1,0 +1,17 @@
+                super.updateItem(tarea, empty);
+                setText(tarea.getContenido());
+
+                ToggleButton toggleButton = new ToggleButton("Completada");
+                toggleButton.setSelected(tarea.isCompletada());
+                toggleButton.setOnAction(event -> tarea.completar()); // si no, se completa
+
+                Button deleteButton = new Button("Borrar");
+                deleteButton.setOnAction(event -> {
+                    getListView().getItems().remove(getItem());
+                    logica.eliminarTarea(tarea);
+                });
+
+                HBox hBox = new HBox(toggleButton, deleteButton);
+                hBox.setSpacing(10);
+
+                setGraphic(hBox);

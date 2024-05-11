@@ -1,0 +1,1 @@
+Implementar una aplicación en JavaFX que muestre un cuadro de texto, para que el usuario ingrese su nombre, y un botón. Al clickear el botón se debe saludar al usuario mediante un Alert.

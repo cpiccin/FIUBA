@@ -1,0 +1,1 @@
+Implementar una aplicación en JavaFX que muestre un ChoiceBox con diferentes colores, y un Label que cambie su color en base a la opción elegida.

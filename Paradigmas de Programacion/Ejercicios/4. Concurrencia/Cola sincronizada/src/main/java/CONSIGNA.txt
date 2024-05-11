@@ -1,0 +1,3 @@
+Implementar una clase ColaSincronizada, que recibe como parámetro un número entero N indicando su capacidad máxima.
+Si la cola está llena, el método encolar debe bloquear hasta que haya lugar y el elemento haya sido encolado satisfactoriamente.
+Si la cola está vacía, desencolar debe bloquear hasta que haya un elemento para desencolar.

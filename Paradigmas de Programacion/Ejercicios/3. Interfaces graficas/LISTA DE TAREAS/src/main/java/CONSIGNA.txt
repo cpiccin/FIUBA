@@ -1,0 +1,6 @@
+Implementar una aplicación que permita manipular una lista de tareas (TO-DO list). El usuario debe poder:
+
+    - Agregar tareas (ingresando un título en un cuadro de texto),
+    - Ver un listado de tareas
+    - Marcar tareas como hechas (mediante un ToggleButton)
+    - Eliminar tareas
