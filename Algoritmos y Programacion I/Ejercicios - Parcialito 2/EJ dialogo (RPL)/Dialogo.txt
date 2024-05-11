@@ -1,0 +1,4 @@
+Persona1: una frase 
+Persona2: otra frase 
+Persona1: unas frase
+PersonaN: apareciendo 

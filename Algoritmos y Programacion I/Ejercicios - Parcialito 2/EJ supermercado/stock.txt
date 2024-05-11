@@ -1,0 +1,7 @@
+arroz;3
+quinoa;3
+tomate;11
+ricota;4
+durazno;5
+coca cola;20
+manteca;14

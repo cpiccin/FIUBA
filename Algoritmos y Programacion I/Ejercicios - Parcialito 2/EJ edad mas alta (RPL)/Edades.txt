@@ -1,0 +1,10 @@
+Candela,19
+Juan,42
+Robert,77
+Walter,60
+Vanesa,13
+Sandra,52
+Lucila,34
+Hugo,65
+Juliana,32
+Dacia,24
