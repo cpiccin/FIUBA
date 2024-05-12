@@ -14,10 +14,22 @@ Almacena en la pila la direccion de la instruccion siguiente a la call y bifurca
 - RET op
 Toma el elemento del tope de la pila que debe ser una direccion de memoria y bifurca hacia la misma.
 
-## Condicionales
+## Loop
+- LOOP op
+Resta 1 al contenido del RCX (por convencion es el contador) y si el resultado es distinto de 0, bifurca al punto indicado por el operando, sino continua con la ejecucion de la siguiente instruccion.
+```
+    mov rcx,5
+inicio:
+    . . .
+    . . .
+    loop inicio
+    . . .
+```
 
-### Generales
-ZF = Zero Flag ; CF = Carry Flag ; OF = Overflow Flag
+## Condicionales. JUMP IF...
+ZF = Zero Flag ; CF = Carry Flag ; OF = Overflow Flag ; SF = Sign Flag
+
+### Condicionales generales
 - JE op     -> si son iguales ZF=1
 - JNE op    -> si no son iguales ZF=0
 - JZ op     -> si es igual a cero ZF=1
@@ -27,3 +39,25 @@ ZF = Zero Flag ; CF = Carry Flag ; OF = Overflow Flag
     * The Carry Flag is set by previous arithmetic instructions (like ADD, SUB, MUL, etc.) if an operation resulted in a carry out of the most significant bit (for addition) or a borrow into the most significant bit (for subtraction).
     * The JC instruction checks the Carry Flag. If CF is 1 (indicating a carry or borrow occurred), it jumps to the specified label in the program. If CF is 0 (indicating no carry or borrow occurred), it continues to the next instruction.
 - JO op     -> si hubo overflow (OF=1)
+
+### Condicionales con signo
+- JG op     -> si es mayor (ZF=0 and SF=OF)
+- JGE op    -> si es mayor o igual (SF=OF)
+- JL op     -> si es menor (SF!=OF)
+- JLE op    -> si es menor o igual (ZF=1 or SF!=OF)
+
+- JNG op    -> por no mayor (ZF=1 or SF!=OF)
+- JNGE op   -> por no mayor o igual (SF!=OF)
+- JNL op    -> por no menor (SF=OF)
+- JNLE op   -> por no menor o igual (ZF=0 and SF=OF)
+
+### Condicionales sin signo
+- JA op     -> por mayor (CF=0 and ZF=0)
+- JAE op    -> por mayor o igual (CF=0)
+- JB op     -> por menor (CF=1)
+- JBE op    -> por menor o igual (CF=1 or ZF=1).
+
+- JNA op    -> por no mayor (CF=1 or ZF=1)
+- JNAE op   -> por no mayor o igual (CF=1)
+- JNB op    -> por no menor (CF=0)
+- JNBE op   -> por no menor o igual CF=0 and ZF=0)
