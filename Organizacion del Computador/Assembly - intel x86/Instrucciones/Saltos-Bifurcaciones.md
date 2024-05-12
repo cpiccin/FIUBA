@@ -46,18 +46,18 @@ ZF = Zero Flag ; CF = Carry Flag ; OF = Overflow Flag ; SF = Sign Flag
 - JL op     -> si es menor (SF!=OF)
 - JLE op    -> si es menor o igual (ZF=1 or SF!=OF)
 
-- JNG op    -> por no mayor (ZF=1 or SF!=OF)
-- JNGE op   -> por no mayor o igual (SF!=OF)
-- JNL op    -> por no menor (SF=OF)
-- JNLE op   -> por no menor o igual (ZF=0 and SF=OF)
+- JNG op    -> si no es mayor (ZF=1 or SF!=OF)
+- JNGE op   -> si no es mayor o igual (SF!=OF)
+- JNL op    -> si no es menor (SF=OF)
+- JNLE op   -> si no es menor o igual (ZF=0 and SF=OF)
 
 ### Condicionales sin signo
-- JA op     -> por mayor (CF=0 and ZF=0)
-- JAE op    -> por mayor o igual (CF=0)
-- JB op     -> por menor (CF=1)
-- JBE op    -> por menor o igual (CF=1 or ZF=1).
+- JA op     -> si es mayor (CF=0 and ZF=0)
+- JAE op    -> si es mayor o igual (CF=0)
+- JB op     -> si es menor (CF=1)
+- JBE op    -> si es menor o igual (CF=1 or ZF=1).
 
-- JNA op    -> por no mayor (CF=1 or ZF=1)
-- JNAE op   -> por no mayor o igual (CF=1)
-- JNB op    -> por no menor (CF=0)
-- JNBE op   -> por no menor o igual CF=0 and ZF=0)
+- JNA op    -> si no es mayor (CF=1 or ZF=1)
+- JNAE op   -> si no es mayor o igual (CF=1)
+- JNB op    -> si no es menor (CF=0)
+- JNBE op   -> si no es menor o igual CF=0 and ZF=0)
