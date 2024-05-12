@@ -1,4 +1,4 @@
-Instrucciones logicas
+# Instrucciones logicas
 
 - AND op1, op2
 Ejecuta la operacion logica AND entre op1 y op2 dejando el resultado en op1. Levanta 1 si op1 es 1 y op2 es 1. Los dos operandos tendran la misma longitud.
