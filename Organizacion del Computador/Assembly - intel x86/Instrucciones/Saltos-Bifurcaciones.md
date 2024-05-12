@@ -38,7 +38,7 @@ ZF = Zero Flag ; CF = Carry Flag ; OF = Overflow Flag ; SF = Sign Flag
 - JC op&emsp;-> si CF es distinto de cero CF=1
     * The Carry Flag is set by previous arithmetic instructions (like ADD, SUB, MUL, etc.) if an operation resulted in a carry out of the most significant bit (for addition) or a borrow into the most significant bit (for subtraction).
     * The JC instruction checks the Carry Flag. If CF is 1 (indicating a carry or borrow occurred), it jumps to the specified label in the program. If CF is 0 (indicating no carry or borrow occurred), it continues to the next instruction.
-- JO op     -> si hubo overflow (OF=1)
+- JO op&emsp;-> si hubo overflow (OF=1)
 
 ### Condicionales con signo
 - JG op&emsp;-> si es mayor (ZF=0 and SF=OF)
