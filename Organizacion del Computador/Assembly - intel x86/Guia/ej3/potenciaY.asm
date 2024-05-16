@@ -1,4 +1,4 @@
-; Realizar un programa que resuelva X+Y teniendo en cuenta que tanto X e Y pueden ser positivos o negativos.
+; Realizar un programa que resuelva X^Y teniendo en cuenta que tanto X e Y pueden ser positivos o negativos.
 
 global main
 extern puts 
@@ -24,7 +24,6 @@ section .data
     msgX    db "Ingrese un numero X: ", 0
     msgY    db "Ingrese un numero Y: ", 0
     msgFin  db "%d^%d = %d", 10, 0
-    expNeg  dw 0 ; es 0 si el exponente es positivo, 1 si es negativo
 
 
 section .bss
@@ -51,8 +50,6 @@ main:
     mov     rdi, 1 
     mov     [res], rdi 
     call    hacerCuenta
-
-    call    definirRes
 
     mov     rdi, msgFin
     mov     rsi, [Xint]
@@ -109,16 +106,4 @@ expNegativo:
     ret
 
 expPositivo:
-    ret
-
-definirRes:
-    mov     rdi, expNeg
-    cmp     rdi, 1 
-    je      cambioResExpNeg ; el exponente es negativo
-    ret
-
-cambioResExpNeg:
-    mov     rax, 1
-    mov     rdi, [res]
-    idiv    rdi
     ret
