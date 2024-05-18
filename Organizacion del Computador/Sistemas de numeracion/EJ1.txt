@@ -2,7 +2,7 @@
 
 Dado A que representa la configuración en base 10 de un número almacenado en formato empaquetado de 3 bytes, se pide:
 a) Indicar cuál es el número almacenado.
-b) Almacenar el el número en formato BPFlotante IEEE 754 de precisión simple, dando su configuración hexadecimal.
+b) Almacenar el número en formato BPFlotante IEEE 754 de precisión simple, dando su configuración hexadecimal.
 A = (69659)10
 
 
@@ -49,7 +49,7 @@ Quiero A-B en BPF c/s de 16b que es lo mismo que A + Cb(B)
 B = -2050 [10] = -0000 1000 0000 0010 [2]
 
 Busco el Cb(B):
-	Not+1 ---> 1111 0111 1111 1101
+		Not+1 ---> 1111 0111 1111 1101
 			 + 0000 0000 0000 0001
 			   -------------------
 			   1111 0111 1111 1110 [2]
@@ -64,7 +64,7 @@ Ahora paso a BPF c/s 16b
 
 Paso a BPF c/s 16b    
 A = -0000 0100 0100 1101 [2] 
-Not+1 ---> 1111 1011 1011 0010
+	Not+1 ---> 1111 1011 1011 0010
 		 + 0000 0000 0000 0001
 		   -------------------
 		   1111 1011 1011 0011 [2]
