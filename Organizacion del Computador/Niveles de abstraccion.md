@@ -1,5 +1,4 @@
-
-**Software:**
+### Software:
 
 1. **Level 6 - Problem Oriented Language Level (Translation-Compiler):** This is the level of high-level programming languages like Python, Java, C++, etc. These languages are designed to be easy for humans to read and write. They are translated into machine code by compilers.
 
@@ -9,7 +8,7 @@
 
 4. **Level 3 - Instruction Set Architecture Level (Interpretation/Direct Execution):** This is the level of the raw machine code that is executed directly by the CPU. It is the interface between the hardware and the software.
 
-**Hardware:**
+### Hardware:
 
 1. **Level 2 - Micro-architecture Level (Registers):** This level includes the CPU's data storage elements, such as registers and caches, and the execution units that perform operations on the data.
 
