@@ -1,10 +1,13 @@
-Dado A que representa la configuración en base 8 de un número almacenado en formato BPF c/signo de 24 bits y B que representa la configuración en base 10 de otro número almacenado en formato zoneado de 3 bytes se pide:
+Dado A que representa la configuración en base 8 de un número almacenado en formato BPF c/signo de 24 bits y B que representa la configuración en base 10 de otro
+número almacenado en formato zoneado de 3 bytes se pide:
 
 A = 40300514 B = 16053686
 
 a)Indicar cuales son los números almacenados en base 10
-b)Restarle a A el número de padrón (A-PADRÓN) en formato BPF c/signo de 24 bits indicando la validez del resultado (por favor escriba su numero de padron de forma clara al inicio de este punto)
-c) Tomar el valor del resultado del punto anterior si es válido o el valor de B si no lo fuera y almacenarlo en formato BPFlotante IEEE 754 de precisión simple, dando su configuración hexadecimal
+b)Restarle a A el número de padrón (A-PADRÓN) en formato BPF c/signo de 24 bits indicando la validez del resultado (por favor escriba su numero de padron de
+forma clara al inicio de este punto)
+c) Tomar el valor del resultado del punto anterior si es válido o el valor de B si no lo fuera y almacenarlo en formato BPFlotante IEEE 754 de precisión simple,
+dando su configuración hexadecimal
 
 
 a) A = 40300514 [8] en BPF c/s 24b
