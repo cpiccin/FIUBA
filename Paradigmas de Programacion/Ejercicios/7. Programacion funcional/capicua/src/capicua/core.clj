@@ -11,6 +11,6 @@
 
 
 (defn -main [& args]
-  (def n 26562)
+  (def n 23432)
   (print(capicua? n))
   )
