@@ -9,7 +9,7 @@ Es un componente complejo de varios elementos con distintas cualidades:<br>
     
 Hay una jerarquia de subsistemas de memoria:<br>
     - Internos al sistema (accedidos por el procesador)<br>
-    - Externos al sistema (accedidos por el procesador a traves de un modulo E/S)<br>
+    - Externos al sistema (accedidos por el procesador a traves de un modulo E/S=I/O)<br>
 Caracteristicas a tener en cuenta:<br>
     - Capacidad<br>
     - Tiempo de acceso<br>
@@ -22,3 +22,6 @@ A medida que se baja de la piramide:<br>
     - Capacidad creciente<br>
     - Tiempo de acceso creciente<br>
     - Frecuencia de acceso de la memoria por parte de procesador decreciente<br>
+
+#### Sistema de memoria
+##### Caracteristicas
