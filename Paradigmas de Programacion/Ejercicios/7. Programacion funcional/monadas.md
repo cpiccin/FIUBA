@@ -34,8 +34,9 @@ Permite modelar computaciones que pueden producir múltiples resultados, como la
 hay un monton mas...
 
 ## Funtores
-Un funtor es algo sobre lo que se puede mappear (significando que a ese algo se le puede aplicar una funcion a todos sus valores, al final recolocandolos en un nuevo contenedor con la misma forma y estructura)
-Segun Corsi: "Un funtor es cualquier tipo de datos que define cómo `fmap` se comporta para su caso."
+Un funtor es algo sobre lo que se puede mappear (significando que a ese algo se le puede aplicar una funcion a todos sus valores, al final recolocandolos en un nuevo contenedor con la misma forma y estructura).<br>
+Segun Corsi: 
+> "Un funtor es cualquier tipo de datos que define cómo `fmap` se comporta para su caso."
 ```
 Unwrap value  --->  Apply    --->  Rewrap value
 from context       function         in context
