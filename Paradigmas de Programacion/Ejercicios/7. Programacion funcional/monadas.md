@@ -38,9 +38,9 @@ Hasta ahora sabemos que:      <br>
 <br>  
 
 ## Monads 
-Los monads aplican, a un valor envuelto, una funcion que a su vez devuelve un valor envuelto. Para aplicar ese valor envuelto se utiliza `>>=`.
+Los monads aplican, a un valor envuelto, una funcion que a su vez devuelve un valor envuelto. Para aplicar ese valor envuelto se utiliza `>>=`.<br>
 Un monad es un _patron de diseño_ que permite encadenar operaciones mientras que el monad se encarga por atras de realizar estas tareas.
-En Programación Funcional, un monad es una estructura que combina funciones, definiendo un tipo monádico envolvente (wrapper type) y dos operadores: uno para envolver un valor en el tipo monádico (wrap function) y otro para componer funciones y producir un valor del tipo monádico (run function).
+En Programación Funcional, un monad es una estructura que combina funciones, definiendo un tipo monádico envolvente (wrapper type) y dos operadores: uno para envolver un valor en el tipo monádico (wrap function) y otro para componer funciones y producir un valor del tipo monádico (run function).<br>
 Todos los monadas tienen tres componentes:
 1. <ins>Wrapper Type</ins>: algun wrapper que define el tipo del monad.
 2. <ins>Wrap Function</ins>: funcion que toma valores normales y los wrappea en el monad, como si fuese un constructor. Se identifican como ```return, pure, unit```.
