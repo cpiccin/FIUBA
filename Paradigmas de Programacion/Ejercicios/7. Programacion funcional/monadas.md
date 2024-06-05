@@ -1,4 +1,44 @@
+## Funtores
+Un funtor es algo sobre lo que se puede mappear (significando que a ese algo se le puede aplicar una funcion a todos sus valores, al final recolocandolos en un nuevo contenedor con la misma forma y estructura).<br>
+Segun Corsi: 
+> "Un funtor es cualquier tipo de datos que define cómo `fmap` se comporta para su caso."
+```
+Unwrap value  --->  Apply    --->  Rewrap value
+from context       function         in context
+```
+```
+No value, ---> Don't apply  --->  End up with
+nothing         function           nothing
+```
+Que cosas son un funtor?
+- El tipo `Maybe` es un Funtor. Especifica en su definición cómo se tiene que comportar `fmap` con
+cosas como `Just` y `Nothing`. <br>
+- Un array es un funtor porque dado un array de valores, se le aplica la funcion a cada valor y se devuelve un nuevo array de valores. <br>
+- Una funcion tambien es un funtor: se le aplica una funcion a otra funcion y devuelve otra funcion.
+
+
+## Aplicativos 
+Trata de ahora tambien una funcion envuelta y un valor envuelto, se desenvuelven ambos y se aplica la funcion al valor.
+`<*>` sabe cómo aplicar una función envuelta en un contexto a un valor envuelto en un contexto:
+```
+Function wrapped  --->  Value in  --->  Unwrap both and apply the  --->  New value
+  in a context          a context        function to the value          in a context
+```
+Ejemplo: `<*>` aplica la funcion envuelta al valor envuelto y devuelve ese valor envuelto, aplica 2 a la funcion que suma 3
+```
+user=> (<*> (just #(+ 3 %) ) (just 2) )
+#<Just 5>
+```
+<br>      
+<pre>
+Hasta ahora sabemos que:      <br>                                        
+   1. Los funtores aplican una funcion a un valor envuelto en un contexo<br>
+   2. Los aplicativos aplican una funcion envuelta a un valor envuelto <br>    
+</pre>
+<br>  
+
 ## Monads 
+Los monads aplican, a un valor envuelto, una funcion que a su vez devuelve un valor envuelto. Para aplicar ese valor envuelto se utiliza `>>=`.
 Un monad es un _patron de diseño_ que permite encadenar operaciones mientras que el monad se encarga por atras de realizar estas tareas.
 En Programación Funcional, un monad es una estructura que combina funciones, definiendo un tipo monádico envolvente (wrapper type) y dos operadores: uno para envolver un valor en el tipo monádico (wrap function) y otro para componer funciones y producir un valor del tipo monádico (run function).
 Todos los monadas tienen tres componentes:
@@ -12,8 +52,8 @@ Ejemplo: n puede ser que tenga un numero o que no tenga nada. Null o indefinido 
 ```
 Option<int> = n   int or null/undefined
 ```
-1. Wrapper Type: ```Option<T>``` puede wrappear cualquier tipo T generico.
-2. Wrap Funcion: toma valores de tipo T y los wrappea en un Option devolviendo ```Option<T>```. En este monad se llama ```func some<T> {}```
+1. Wrapper Type: `Option<T>` puede wrappear cualquier tipo T generico.
+2. Wrap Funcion: toma valores de tipo T y los wrappea en un Option devolviendo `Option<T>`. En este monad se llama `func some<T> {}`
 3. Run Function: toma el tipo Option y la funcion de transformacion
 
 ### Furure/Promise Monad
@@ -32,16 +72,7 @@ Representa cálculos no deterministas que pueden tener múltiples resultados.
 Permite modelar computaciones que pueden producir múltiples resultados, como la generación de combinaciones o permutaciones.
 
 hay un monton mas...
-
-## Funtores
-Un funtor es algo sobre lo que se puede mappear (significando que a ese algo se le puede aplicar una funcion a todos sus valores, al final recolocandolos en un nuevo contenedor con la misma forma y estructura).<br>
-Segun Corsi: 
-> "Un funtor es cualquier tipo de datos que define cómo `fmap` se comporta para su caso."
-```
-Unwrap value  --->  Apply    --->  Rewrap value
-from context       function         in context
-```
-```
-No value, ---> Don't apply  --->  End up with
-nothing         function           nothing
-```
+## Entonces...
+**Funtor**: se aplica, con `fmap` o `<$>`, una función a un valor envuelto.<br>
+**Aplicativo**: se aplica, usando `<*>`, una función envuelta a un valor envuelto.<br>
+**Monada**: se aplica, con `>>=`, una función que devuelve un valor envuelto, a un valor envuelto.<br>
