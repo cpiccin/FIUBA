@@ -31,14 +31,6 @@ Ejemplo: `<*>` aplica la funcion envuelta al valor envuelto y devuelve ese valor
 user=> (<*> (just #(+ 3 %) ) (just 2) )
 #<Just 5>
 ```
-<br>      
-<pre>
-Hasta ahora sabemos que:      <br>                                        
-   1. Los funtores aplican una funcion a un valor envuelto en un contexo<br>
-   2. Los aplicativos aplican una funcion envuelta a un valor envuelto <br>    
-</pre>
-<br>  
-
 ## Monads 
 Los monads aplican, a un valor envuelto, una funcion que a su vez devuelve un valor envuelto. Para aplicar ese valor envuelto se utiliza `>>=`.<br>
 Un monad es un _patron de diseño_ que permite encadenar operaciones mientras que el monad se encarga por atras de realizar estas tareas.
@@ -75,6 +67,6 @@ Permite modelar computaciones que pueden producir múltiples resultados, como la
 
 hay un monton mas...
 ## Entonces...
-**Funtor**: se aplica, con `fmap` o `<$>`, una función a un valor envuelto.<br>
-**Aplicativo**: se aplica, usando `<*>`, una función envuelta a un valor envuelto.<br>
+**Funtor**: con `fmap` o `<$>`, aplican una funcion a un valor envuelto en un contexo.<br>
+**Aplicativo**: usando `<*>`, aplican una funcion envuelta a un valor envuelto.<br>
 **Monada**: se aplica, con `>>=`, una función que devuelve un valor envuelto, a un valor envuelto.<br>
