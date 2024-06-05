@@ -50,7 +50,7 @@ Option<int> = n   int or null/undefined
 2. Wrap Funcion: toma valores de tipo T y los wrappea en un Option devolviendo `Option<T>`. En este monad se llama `func some<T> {}`
 3. Run Function: toma el tipo Option y la funcion de transformacion
 
-### Furure/Promise Monad
+### Future/Promise Monad
 Representa la idea de que un valor puede no estar listo en ese momento, o sea que puede ser asincronico y estar disponible mas tarde.
 
 ### Either Monad
