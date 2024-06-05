@@ -59,7 +59,7 @@ Permite manejar errores y excepciones sin usar excepciones del lenguaje, dando u
 
 ### State Monad 
 Maneja y pasa un estado mutable a través de una secuencia de cálculos.
-Permite implementar algoritmos que necesitar mantener y actualizar un estado sin utilizar mutabilidad explicita.
+Permite implementar algoritmos que necesitan mantener y actualizar un estado sin utilizar mutabilidad explicita.
 
 ### List Monad
 Representa cálculos no deterministas que pueden tener múltiples resultados.
