@@ -1,3 +1,5 @@
+<span style="font-size:larger;"> 
+  
 ## Funtores
 Un funtor es algo sobre lo que se puede mappear (significando que a ese algo se le puede aplicar una funcion a todos sus valores, al final recolocandolos en un nuevo contenedor con la misma forma y estructura).<br>
 Segun Corsi: 
