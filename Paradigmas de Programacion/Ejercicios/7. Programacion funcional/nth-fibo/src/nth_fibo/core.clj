@@ -5,14 +5,15 @@
 ;; término de la sucesión de Fibonacci.
 
 
-(defn nth-fibo [n] 
-  (cond 
-    (= n 0) 0 
-    (= n 1) 1
-    :else (+ (nth-fibo (- n 1)) (nth-fibo (- n 2)))
-))
+;(defn nth-fibo [n]
+;  (cond
+;    (= n 0) 0
+;    (= n 1) 1
+;    :else (+ (nth-fibo (- n 1)) (nth-fibo (- n 2)))
+;))
+;
+;
+;(defn -main
+;  [& args]
+;  (println(nth-fibo 11)))
 
-
-(defn -main
-  [& args]
-  (println(nth-fibo 11)))
