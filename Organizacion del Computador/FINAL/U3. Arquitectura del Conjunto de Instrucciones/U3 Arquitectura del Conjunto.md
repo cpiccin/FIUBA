@@ -31,6 +31,41 @@ Se refiere a una
 - Misma arquitectura base, distintas organizaciones (implementaciones).
 - Modelos con prestaciones y precios diferentes pero compatibles entre sí.
 
+## Modelo de capas
+División de la arquitectura de computadoras en capas de forma jerárquica, cada capa interactua con la capa inferior o superior.
+![capas](https://github.com/cpiccin/FIUBA/assets/103950114/551eb875-fdae-4d19-b671-bf4b028d16a6)
+
+### Software:
+
+1. **Level 6 - Problem Oriented Language Level (Translation-Compiler):** This is the level of high-level programming languages like Python, Java, C++, etc. These languages are designed to be easy for humans to read and write. They are translated into machine code by compilers.
+
+2. **Level 5 - Assembly Language Level (Translation-Assembler):** Assembly language is a low-level programming language specific to a particular computer architecture. It is converted into executable machine code by a utility program referred to as an assembler.
+
+3. **Level 4 - Operating System Machine Level (Partial Interpretation):** This level is where the operating system resides. The OS interacts directly with the hardware and provides services to the higher level software.
+
+4. **Level 3 - Instruction Set Architecture Level (Interpretation/Direct Execution):** This is the level of the raw machine code that is executed directly by the CPU. It is the interface between the hardware and the software.
+
+### Hardware:
+
+1. **Level 2 - Micro-architecture Level (Registers):** This level includes the CPU's data storage elements, such as registers and caches, and the execution units that perform operations on the data.
+
+2. **Level 1 - Digital Logic Level (Gates):** This level is where the actual logic gates that make up the CPU are found. These gates perform basic binary logic operations like AND, OR, and NOT.
+
+3. **Level 0 - Device Level (Individual Transistors):** This is the lowest level, where individual transistors, the building blocks of digital circuits, are found. Transistors act as electronic switches that open and close to control the flow of electricity and represent binary data.
+
+## Clasificacion de computadoras segun su poder de calculo
+| Supercomputadoras                  | Macrocomputadoras o Mainframes | Minicomputadoras o servidores middle range | Microcomputadoras / PC |Computadoras portátiles / notebooks / netbooks | Computadoras de mano |
+|------------------------------------|--------------------------------|--------------------------------------------|------------------------|-----------------------------------------------|----------------------|
+| Extremadamente rápidas             | Muy rapidas| Rapidas | Uso individual o redes pequeñas a medianas | Uso individual portátil | Uso individual portatil acotado |
+| Manejan volúmenes de datos enormes | Manejan volúmenes de datos muy grandes| Manejan volumenes de datos grandes | Manejan volúmenes de datos no muy grandes | Manejan volúmenes de datos no muy grandes | Manejan volúmenes de datos pequeños |
+| Poseen miles de CPU                | Poseen cientos de CPU| Poseen decenas de CPU |Poseen uno o varios CPU|Poseen uno o varios CPU|Poseen uno o varios CPU|
+| Tienen usos específicos: militar, simulacion, ciencia            | Muy alta disponibilida y usos comerciales y cientificos: sistemas bancarios, telecomunicaciones, instituciones gubernamentales | Usos comerciales: empresas medianas y grandes, varios equipos en una misma empresa | Uso hogareño, educativo, comercial, recreativo: computadora del hogar, negocios, colegios, consolas de videojuegos |Uso hogareño, educativo, comercial, recreativo: estaciones de trabajo en empresas, computadora del hogar, negocios, colegios, consolas de videojuegos | Uso hogareño, comercial: Acopio de datos en vía pública, información personal, visualización de contenidos |
+
+## Arquitectura Harvard
+![harvarf](https://github.com/cpiccin/FIUBA/assets/103950114/b6eaf4b2-fa5a-425e-987b-3118703bc3c8)
+![Screenshot from 2024-07-02 18-09-22](https://github.com/cpiccin/FIUBA/assets/103950114/0e4236dc-a408-4bca-96a1-62940e7f8e1f) <br>
+
+
 
 ## ISA (Instruction Set Architecture) - Arquitectura de Programacion:
 ### Repertorio de instrucciones
