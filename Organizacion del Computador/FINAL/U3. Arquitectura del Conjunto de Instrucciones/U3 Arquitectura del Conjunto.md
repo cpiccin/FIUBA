@@ -26,6 +26,12 @@ La microarquitectura es la implementación específica de una arquitectura de co
 - El conjunto de instrucciones del procesador no está directamente codificado en el hardware, sino que es definido por el microcódigo almacenado en una memoria especial dentro del procesador.
 - Pueden ser más lentas en la ejecución de instrucciones en comparación con las arquitecturas cableadas debido a la sobrecarga adicional de interpretar el microcódigo, pero ofrecen ventajas significativas en términos de flexibilidad, facilidad de diseño y capacidad para soportar un conjunto de instrucciones más complejo.
 
+## Familia de computadoras
+Se refiere a una 
+- Misma arquitectura base, distintas organizaciones (implementaciones).
+- Modelos con prestaciones y precios diferentes pero compatibles entre sí.
+
+
 ## ISA (Instruction Set Architecture) - Arquitectura de Programacion:
 ### Repertorio de instrucciones
 
