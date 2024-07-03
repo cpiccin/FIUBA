@@ -32,7 +32,7 @@ Se refiere a una
 - Modelos con prestaciones y precios diferentes pero compatibles entre sí.
 
 ## Modelo de capas
-División de la arquitectura de computadoras en capas de forma jerárquica, cada capa interactua con la capa inferior o superior.
+División de la arquitectura de computadoras en capas de forma jerárquica, cada capa interactua con la capa inferior o superior. <br>
 ![capas](https://github.com/cpiccin/FIUBA/assets/103950114/551eb875-fdae-4d19-b671-bf4b028d16a6)
 
 ### Software:
@@ -64,8 +64,20 @@ División de la arquitectura de computadoras en capas de forma jerárquica, cada
 ## Arquitectura Harvard
 ![harvarf](https://github.com/cpiccin/FIUBA/assets/103950114/b6eaf4b2-fa5a-425e-987b-3118703bc3c8)
 ![Screenshot from 2024-07-02 18-09-22](https://github.com/cpiccin/FIUBA/assets/103950114/0e4236dc-a408-4bca-96a1-62940e7f8e1f) <br>
+La memoria de la maquina esta subdividida en dos espacios distintos, una para almacenar datos y otra para almacenar las instrucciones, el programa que hace uso de esos datos.<br>
+Ahora el CPU interactua con dos memorias, cada una con un bus dedicado.
+#### Puntos a considerar:
+- La ventaja de tener dos memorias independientes tiene que ver con poder acceder de forma simuntanea a una instruccion y a un dato, poder cargar al mismo tiempo instrucciones y datos (instruction fetch y data access en paralelo por distintos buses).
+- Como dificultad esta que como hay dos memorias diferentes se manejan espacios de direcciones diferentes lo que dificulta la programacion al tener que hacer esa diferenciacion.
+- Es implementado en algunos microcontroladores PIC y en procesadores de señales digitales. 
+- Usado en los DSP (tipo especializado de microprocesador diseñado específicamente para realizar operaciones de procesamiento de señales digitales de manera eficiente) para streaming de datos:
+ * Mayor ancho de banda de memoria. 
+ * Ancho de banda más predecible. 
+- En la práctica, las diferencias en el rendimiento de acceso entre las arquitecturas Harvard y Von Neumann pueden no ser tan significativas como en la teoría, especialmente en aplicaciones generales de propósito general. Además, la complejidad de la programación en una arquitectura Harvard puede limitar su uso en ciertos contextos.
 
-
+|Diferencias de rendimiento|Complejidad de programacion|Aplicaciones especializadas|
+|--------------------------|---------------------------|---------------------------|
+| Teoricamente, Hardvard puede ofrecer ventajas por el acceso simultaneo a datos e instrucciones, pero en la practica no es tan notable ese rendimiento. Se debe a que otros factores como la velocidad de la memoria, la optimizacion del codigo, pueden influir mas en ese rendimiento general | La separacion de datos e instrucciones puede complejizar la programacion. Von Neumann tiene una abstraccion mas simple donde los datos y las instrucciones se manejan de manera mas uniforme. | Hardvard es mas adecuada para aplicaciones especializadas que necesiten un acceso rapido y eficiente a la memoria  como en sistemas embebidos, procesamiento de señales, control en tiempo real, etc.|
 
 ## ISA (Instruction Set Architecture) - Arquitectura de Programacion:
 ### Repertorio de instrucciones
