@@ -80,17 +80,80 @@ Ahora el CPU interactua con dos memorias, cada una con un bus dedicado.
 | Teoricamente, Hardvard puede ofrecer ventajas por el acceso simultaneo a datos e instrucciones, pero en la practica no es tan notable ese rendimiento. Se debe a que otros factores como la velocidad de la memoria, la optimizacion del codigo, pueden influir mas en ese rendimiento general | La separacion de datos e instrucciones puede complejizar la programacion. Von Neumann tiene una abstraccion mas simple donde los datos y las instrucciones se manejan de manera mas uniforme. | Hardvard es mas adecuada para aplicaciones especializadas que necesiten un acceso rapido y eficiente a la memoria  como en sistemas embebidos, procesamiento de señales, control en tiempo real, etc.|
 
 ## ISA (Instruction Set Architecture) - Arquitectura de Programacion:
+
 ### Repertorio de instrucciones
+Instrucciones de maquina; instrucciones que entiende nativamente el CPU. 
 
-### Especificacion de su operacion
+#### <ins>¿Qué es una instrucción de máquina?</ins> 
+- Una instruccion que entiende directamente el CPU de la maquina.
+- Las instrucciones son visibles para el CPU dentro del registro de instrucciones.
+- Cuando la "ve" (hizo el fetch desde la memoria) va a la fase de la instruccion en si.
+- Tiene la forma `Opcode + Operandos (0 a n)`
 
-### Registros
+#### Categorias:
+- Aritmeticas y logicas
+  * add, substract, divide, multiply
+  * and, or, xor
+- Movimiento de datos
+  * load, store, move
+- Entrada / Salida
+  * start I/O (input/output)
+- Control de flujo
+  * branch, jump, compare, call, return
+  
+#### Tipos de operandos
+- Registro
+- Memoria
+- Inmediato
+
+#### Clasificacion segun la ubicacion de los operandos
+Segun la implementacion de la arquitectura cambia donde va a estar el operando para poder realizar la instruccion.
+- Stack
+- Acumulador (abacus)
+- Registro-Memoria (superabacus)
+- Registro-Registro (load-store) (suberabacus)
+- Memoria-Memoria
+Resolucion de `C = A + B` segun cada arquitectura:
+![adsd](https://github.com/cpiccin/FIUBA/assets/103950114/74475f5f-c2bc-4c63-8777-9e213c54e9e1)
+
+#### Clasificacion de la ISA segun el numero de direcciones
+- 0 direcciones (Stack): add 
+- 1 dirección (Acumulador): add A
+- 2 direcciones (Reg-Mem/Reg-Reg/Mem-Mem): add R1, A
+- 3 direcciones (Reg/Mem): add R1, R2, R3
 
 ### Tipos de datos
+- Numéricos (BPF s/s, BPF c/s, BPFlotante, BCD). 
+- Caracteres (ASCII, EBCDIC, Unicode) 
+- Datos lógicos 
+- Direcciones
 
 ### Modos de direccionamiento
 
-### Formato de Instrucciones
+### Formato de Instrucciones (Encoding)
+Define como cada arquitectura especifica que campos y que bits componen cada instruccion.
+
+#### Componentes
+- Opcode
+- 0 a n operandos
+- Modo de direccionamiento de cada operando
+- Flags
+
+<ins> **Formato fijo** </ins>: todas las instrucciones de máquina tienen el mismo tamaño de instrucción, a pesar de poder tener distinto formato.
+En **ARM** todas las instrucciones de ARM miden 32 bits<br>
+<p>
+  <img src="https://github.com/cpiccin/FIUBA/assets/103950114/b44adff2-76df-43b6-a3c5-2e8ba80f0b20" alt="arm" style="display: block; margin-left: auto; margin-right: auto; width: 300px;" />
+</p>
+
+<ins> **Formato variable** </ins>: el tamaño de las instrucciones de máquina depende de cómo se escriba la instrucción.<br>
+En **x86** es un unico formato variable (el tamaño de cada campo es variable) <br>
+<p>
+  <img src="https://github.com/cpiccin/FIUBA/assets/103950114/4fa37d4e-80f5-4c35-8405-c9388534b4c3" alt="arm" style="display: block; margin-left: auto; margin-right: auto; width: 300px;" />
+</p>
+
+<ins> **Formato hibrido** </ins>: mezcla entre fijo y variable. Hay distintos formatos, cada uno tiene un tamaño definido, por lo que el tamaño depende de cómo combine los formatos. <br>
+En **IBM Mainframe** el formato de instruccion varia pero cada uno a su vez es fijo
+
 
 ### Memoria
   * Word size (byte, dword, qword, etc)
