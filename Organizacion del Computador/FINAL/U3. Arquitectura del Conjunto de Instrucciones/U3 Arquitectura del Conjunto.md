@@ -98,8 +98,10 @@ Instrucciones de maquina; instrucciones que entiende nativamente el CPU.
   * load, store, move
 - Entrada / Salida
   * start I/O (input/output)
-- Control de flujo
-  * branch, jump, compare, call, return
+- Control de flujo: metodos para evaluar condiciones de bifurcacion.
+  * **Condition Code (CC)**, Ej: Intel x86, ARM, Power Pc, SPARC: Este método utiliza un conjunto de bits especiales, conocidos como condition codes, que se actualizan según el resultado de ciertas operaciones, como sumas, restas o comparaciones. Después de una operación, se establecen los bits de los condition codes según el resultado, como el bit de cero si el resultado es cero, el bit de signo si el resultado es negativo, etc. Las instrucciones de bifurcación pueden examinar estos bits de condición para decidir si se debe tomar una rama en el flujo de ejecución del programa.
+  * **Condition Register**. Ej: Alpha, MIPS: Similar al método de los condition codes, el Condition Register es un registro especial que contiene información sobre el resultado de la última operación realizada. En lugar de bits individuales como en el método CC, el Condition Register puede contener un campo dedicado para indicar si la última operación resultó en igualdad, menor que, mayor que, etc. Las instrucciones de bifurcación pueden examinar directamente este registro para tomar decisiones basadas en el resultado de la operación anterior.
+  * **Compare and Branch**. Ej: VAX: Este método implica realizar una comparación directa entre dos valores y luego tomar una decisión de bifurcación basada en el resultado de esa comparación. Por lo general, implica una instrucción de comparación que resta un valor de otro y establece los bits de condición apropiados (como en el método CC). Luego, una instrucción de bifurcación condicional puede examinar estos bits de condición y tomar una decisión de salto basada en ellos. Por ejemplo, si el resultado de la comparación fue igual, puede tomar una rama; de lo contrario, puede tomar la otra.
   
 #### Tipos de operandos
 - Registro
@@ -129,6 +131,41 @@ Resolucion de `C = A + B` segun cada arquitectura:
 - Direcciones
 
 ### Modos de direccionamiento
+Toda instruccion de maquina tiene operandos, el acceso a esos operandos se llama direccionamiento. Cual es la forma que tiene el CPU de acceder a los datos necesarios para ejecutar la instruccion. <br>
+
+![modo](https://github.com/cpiccin/FIUBA/assets/103950114/5fbd0feb-e980-4213-a491-2d8acb0d6279) <br>
+
+Previo veo <ins>componentes de la velocidad de transferencia</ins>:
+- Latencia: cuanto tarda en que el dato viaje del registro hasta la UAL (cuanto tarda en recorrer el camino de apertura de compuertas)
+- Cuan rapido es el componente electronico para transmitir la informacion a traves del camino.
+#### Inmediato 
+El operando se encuentra en la instruccion. <br>
+🟢 No es necesario acceder a la memoria para obtener el dato, lo que hace que este modo sea muy rapido. <br>
+🔴 La limitacion es que como el operando forma parte de la instruccion, va a tener un tamaño limitado por el tamaño de la instruccion.
+#### Memoria Directo
+La direccion de memoria donde se encuentra el operando se especifica en la instruccion. <br>
+🟢 La ventaja es que como el operando esta guardado en la memoria, su tamaño es libre.<br>
+🔴 La limitacion es como la del modo inmediato, por ahi no entra la address completa; tambien otra limitacion es que la direccion esta prefijada, se puede modificar el contenido de la memoria pero la direccion es fija, no hay tanta flexibilidad.
+#### Memoria Indirecto
+La dirección de memoria donde se encuentra el operando se almacena en otra dirección de memoria. La instrucción especifica la dirección de memoria que contiene la dirección real del operando.<br> 
+🟢 La ventaja es acceder a datos cuya ubicación puede cambiar durante la ejecución, hay una mayor flexibilidad ademas de que tambien no va a existir esa limitacion del tamaño de direccion en la segunda instruccion.<br>
+🔴 Como hay dos accesos a memoria la instruccion sera muy lenta.
+#### Registro
+El operando se encuentra en un registro del procesador. <br>
+🟢 Este modo permite un acceso muy rápido a los datos, ya que los registros son más rápidos que la memoria. <ins>**Va a ser un modo mas rapido que el inmediato**</ins> porque los registros se encuentran en la UAL y el operando inmediato se encuentra en el RI que esta en la Unidad de Control, por el camino de datos y el acceso a compuertas, el acceso a un registro va a ser mas rapido. <br>
+🔴 La limitacion de este modo esta en que como la cantidad de registros es limitada no se puede almacenar todo en registros y usar este modo todo el tiempo; otra limitacion es el tamaño del registro. 
+#### Registro Indirecto
+La dirección de memoria del operando se almacena en un registro. <br>
+🟢 Combina la velocidad de acceso de los registros con la flexibilidad del direccionamiento indirecto.<br>
+🔴 La desventaja es el direccionamiento adicional hacia la memoria
+### Desplazamiento. *Offset*
+Se basa en modificar una direccion base para acceder a distintos operandos. La direccion efectiva se construye con dos datos.<br>
+🟢 La ventaja es la gran flexibilidad por poder modificar dos datos
+- Relativo (Program counter): se especifica el offset como una cantidad de bytes a donde la maquina va a ir a buscar el operando. Lo va a buscar a esa distancia en bytes de direccion de la instruccion, que esta en el Program counter que es el RPI.
+- Registro Base: se suma un desplazamiento a un registro con la direccion de memoria para obtener la dirección del operando. Utilizado para acceder a estructuras de datos como arrays y structs.
+- Indexado: el desplazamiento que se suma esta en el registro (un indice) y el otro dato sera la direccion base a la que se le suma. Esto es especialmente útil para trabajar con arrays, donde el índice indica el elemento específico.
+#### Stack
+Para las instrucciones que lo usan, no van a tener operandos porque el operando va a estar implicito en el tope de la pila.
 
 ### Formato de Instrucciones (Encoding)
 Define como cada arquitectura especifica que campos y que bits componen cada instruccion.
@@ -156,8 +193,18 @@ En **IBM Mainframe** el formato de instruccion varia pero cada uno a su vez es f
 
 
 ### Memoria
-  * Word size (byte, dword, qword, etc)
-  * Big/Little Endian
-  * Direccionamiento
-  * Espacio de direcciones
+  * **Word size:** cantidad de bits que el CPU puede procesar de manera nativa en una operacion. Este concepto coincide directamente con el tamaño en bits de la arquitectura. Por ejemplo en 8086 el word size era de 16 bits pero actualmente hay procesadores de 64 bits entonces, por ejemplo en un programa Intel para guardar un BPF c/s se tendria que pedir una `qword` que son 8 bytes o sea 64 bits. En ARM que es basado en 32 bits, una `word` van a ser 32 bits y una `dword` seran 64 bits
+  * **Big/Little Endian:** cuando se guarda algo en la memoria puede cambiar el orden en el que se almacena y lee un dato.
+    - Big Endian: el byte más significativo se coloca primero (en la direccion de memoria mas baja) y el menos significativo se coloca al final (en la direccion mas alta)
+    - Little Endian: el byte menos significativo se almacena en la direccion mas baja y el mas significativo en la mas alta
+    - Ejemplo: `12345678[16] BPF c/s 32 bits` el numero se divide en 4 bytes donde 12 es el mas significativo y 78 el menos significativo, entonces:
+      |Direc|BE|LE|
+      |-----|--|--|
+      | 184 |12|78|
+      | 185 |34|56|
+      | 186 |56|34|
+      | 187 |78|12|  
+  * **Direccionamiento (Celda):** generalmente el tamaño de las celdas de memoria es de un byte.
+  * **Espacio de direcciones:** se refiere al conjunto de todas las direcciones de memoria que un sistema informático o un proceso puede acceder. Estas direcciones pueden referirse a ubicaciones físicas de memoria en hardware o a ubicaciones virtuales que son gestionadas por el sistema operativo.
+
 
