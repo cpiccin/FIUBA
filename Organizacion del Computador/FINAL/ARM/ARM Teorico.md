@@ -117,6 +117,3 @@ _start:
     swi 0x02                ; va a imprimir la cadena hasta que encuentro el nulo
 ```
 
-### Stack + Subrutinas
-Necesitamos almacenar el estado del procesador cuando hacemos llamadas anidadas.
-
