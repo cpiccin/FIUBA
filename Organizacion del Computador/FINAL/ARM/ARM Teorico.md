@@ -111,3 +111,13 @@ Restar uno al r1 y afectar los condition flags en un loop
     bne loop           @ si en la resta el resultado no fue 0 (los dos valores iguales), se vuelve al loop
 ```
 
+### Load/Store Multiple
+En los procesadores ARM, hay dos instrucciones para cargar y almacenar múltiples operandos y son las llamadas instrucciones de transferencia de bloques.
+
+Cualquier subconjunto de los registros de propósito general se puede cargar o almacenar. Solo se permiten operandos word y los códigos OP utilizados son LDM (Load Multiple) y STM (Store Multiple).
+
+Por ejemplo la instruccion
+- `ldmia r10!, {r0,r1,r6,r7}` <br>
+La instruccion carga consecutivamente valores de memoria en los registros `R0`, `R1`, `R6`, y `R7`, comenzando desde la dirección contenida en `R10`. Después de la operación, `R10` se incrementa en 16 bytes (ese autoincremento es siempre 4) para apuntar más allá de los datos recién cargados.
+
+### Instrucciones de bifurcacion
