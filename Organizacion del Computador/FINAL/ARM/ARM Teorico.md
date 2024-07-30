@@ -24,6 +24,9 @@ El *Current Program Status Register* (CPSR) contiene indicadores condicionales y
 
 ![cpsr](https://github.com/user-attachments/assets/90ad0b0b-643d-4e75-9241-dbd0d9265cfe)
 
+### Condition flags
+![fefe](https://github.com/user-attachments/assets/6e832438-abee-4a50-b546-ead58befc2be)
+
 ### Sintaxis
 - Las etiquetas pueden definirse utilizando una secuencia de caracteres alfanuméricos, barras inferiores (_) y puntos (.) que no comienzan con un número.
 - Los códigos de operación son palabras reservadas que no pueden ser utilizados como identificadores válidos.
